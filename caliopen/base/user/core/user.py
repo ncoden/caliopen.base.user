@@ -125,7 +125,7 @@ class User(BaseCore):
         except NotFound:
             pass
         try:
-            UserName.get(user.name)
+            UserName.get(user.name.lower())
             raise Exception('User %s already exist' % user.name)
         except NotFound:
             pass
@@ -134,7 +134,7 @@ class User(BaseCore):
                                        params=user.params,
                                        date_insert=datetime.utcnow())
         # Ensure unicity
-        UserName.create(name=user.name, user_id=core.user_id)
+        UserName.create(name=user.name.lower(), user_id=core.user_id)
         if user.contact:
             contact = Contact.create(user=core, contact=user.contact)
             # XXX should use core proxy, not directly model attribute
@@ -151,7 +151,7 @@ class User(BaseCore):
     @classmethod
     def by_name(cls, name):
         """Get user by name."""
-        uname = UserName.get(name)
+        uname = UserName.get(name.lower())
         return cls.get(uname.user_id)
 
     @classmethod
