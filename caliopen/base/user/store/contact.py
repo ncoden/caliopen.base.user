@@ -4,7 +4,7 @@ from __future__ import absolute_import, print_function, unicode_literals
 from datetime import datetime
 import uuid
 
-from cqlengine import columns
+from cassandra.cqlengine import columns
 from caliopen.base.store.model import BaseModel, BaseIndexDocument
 from caliopen.base.store.mixin import IndexTagMixin
 

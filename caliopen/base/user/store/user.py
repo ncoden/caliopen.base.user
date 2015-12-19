@@ -6,7 +6,7 @@ from __future__ import absolute_import, print_function, unicode_literals
 import logging
 import uuid
 
-from cqlengine import columns
+from cassandra.cqlengine import columns
 from elasticsearch import Elasticsearch
 from elasticsearch.client.indices import IndicesClient
 
