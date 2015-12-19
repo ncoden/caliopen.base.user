@@ -32,6 +32,7 @@ class Contact(BaseContactModel):
     family_name = columns.Text()
     name_prefix = columns.Text()
     name_suffix = columns.Text()
+    privacy_index = columns.Integer()
     tags = columns.List(columns.Text)
     groups = columns.List(columns.Text)
     # everything else in a map
